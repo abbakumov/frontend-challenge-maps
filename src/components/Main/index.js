@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PlacesCardsList from '../PlacesCardsList';
+
 import './Main.css';
 
 const COORDS = {
@@ -15,27 +17,7 @@ class Main extends React.Component {
 	mapInstance = null;
 
 	componentDidMount() {
-		this.fetchRestaurants()
-			.then(res => this.setState({ businesses: res.businesses || [] }))
-			.catch(err => console.log(err));
-
 		this.mapsApiLoaded = window.setTimeout(this.checkMapsApi.bind(this), 200);
-	}
-
-	fetchRestaurants = async () => {
-		const query = {
-			limit: 50,
-			location: "Berlin, Germany",
-			term: "restaurants"
-		}
-		const urlParams = new URLSearchParams(query);
-		const response = await fetch(`/-/search?${urlParams}`);
-		const body = await response.json();
-
-		if (response.status !== 200) {
-			throw Error(body.message);
-		}
-		return body;
 	}
 
 	checkMapsApi() {
@@ -59,28 +41,7 @@ class Main extends React.Component {
 		return (
 			<main>
 				<div id='places-map' className='places-map'></div>
-				{this.state.businesses.map(business => {
-					return (
-						<div className="card" key={business.id}>
-							<img src={business.image_url} alt={business.name} />
-							<div className="container">
-								<h4><a href={business.url}>{business.name}</a></h4>
-								{
-									business.location &&
-									business.location.display_address &&
-									(
-										<p>
-											{business.location.display_address[0]}
-											<br />
-											{business.location.display_address[1]}
-										</p>
-									)
-								}
-								<p>{business.display_phone}</p>
-							</div>
-						</div>
-					)
-				})}
+				<PlacesCardsList />
 			</main>
 		);
 	}

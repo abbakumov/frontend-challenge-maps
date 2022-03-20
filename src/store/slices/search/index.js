@@ -9,7 +9,7 @@ const FETCH_STATUS = {
 
 const initialState = {
     currentFoodFilter: null,
-    filteredIds: [],
+    placesIds: [],
     fetchStatus: FETCH_STATUS.EMPTY,
 };
 
@@ -20,7 +20,8 @@ export const searchSlice = createSlice({
         fetchingStarted: (state) => {
             state.fetchStatus = FETCH_STATUS.IN_PROGRESS;
         },
-        fetchingSucceed: (state) => {
+        fetchingSucceed: (state, {payload}) => {
+            state.placesIds = payload;
             state.fetchStatus = FETCH_STATUS.SUCCESS;
         },
         fetchingFailure: (state) => {
