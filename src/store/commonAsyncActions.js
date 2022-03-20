@@ -9,6 +9,7 @@ import {
 } from '../store/slices/entities';
 
 // TODO: handle fetching errors
+// TODO: can cause to race conditions, check category again when data loaded
 export const fetchPlacesData = () => async (dispatch, getState) => {
     const state = getState();
     const categories = state.search.currentFoodFilter;

@@ -9,3 +9,9 @@
 .filter-content {
     margin-top: 10px;
 }
+
+.filter-radio-item {
+    display: block;
+    cursor: pointer;
+    margin-top: 5px;
+}

@@ -14,7 +14,7 @@ const PlaceTypeFilter = () => {
             <label className="filter-label">Place Type:</label>
             <div className="filter-content">
                 {PLACE_TYPES_LIST.map(type => (
-                    <div key={type}>
+                    <label className="filter-radio-item" key={type}>
                         <input
                             checked={currentFilter === PLACE_TYPES[type]}
                             type="radio"
@@ -23,7 +23,7 @@ const PlaceTypeFilter = () => {
                             onChange={() => dispatch(changeFilterAndPlacesAction(type))}
                         />
                         {type}
-                    </div>
+                    </label>
                 ))}
             </div>
         </div>
