@@ -4,3 +4,7 @@ import { useSelector } from 'react-redux';
 export const usePlaceData = (id) => useSelector(
     state => (state.entities.places[id]),
 );
+
+export const usePlacesData = () => useSelector(
+    state => (state.entities.places),
+);
