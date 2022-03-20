@@ -51,7 +51,7 @@ class Main extends React.Component {
 			this.mapInstance = new window.google.maps.Map(mapEl, {
 				center: COORDS['Europe/Berlin'],
 				zoom: 8
-			  });
+			});
 		}
 	}
 
