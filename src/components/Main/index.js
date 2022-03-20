@@ -1,12 +1,11 @@
 import React from 'react';
 
+import { COORDS } from '../../constants/geo';
+
+import Filters from '../Filters';
 import PlacesCardsList from '../PlacesCardsList';
 
 import './Main.css';
-
-const COORDS = {
-	'Europe/Berlin': {lat: 52.518611, lng: 13.408333}
-}
 
 class Main extends React.Component {
 	state = {
@@ -41,7 +40,10 @@ class Main extends React.Component {
 		return (
 			<main>
 				<div id='places-map' className='places-map'></div>
-				<PlacesCardsList />
+				<div className="places-list-and-filters">
+					<Filters />
+					<PlacesCardsList />
+				</div>
 			</main>
 		);
 	}

@@ -9,14 +9,19 @@ import {
 } from '../store/slices/entities';
 
 // TODO: handle fetching errors
-export const fetchPlacesData = () => async (dispatch) => {
+export const fetchPlacesData = () => async (dispatch, getState) => {
+    const state = getState();
+    const categories = state.search.currentFoodFilter;
+
     dispatch(fetchingStartedAction());
 
     const query = {
         limit: 50,
-        location: "Berlin, Germany",
-        term: "restaurants"
-    }
+        location: 'Berlin, Germany',
+        term: 'restaurants',
+        categories,
+    };
+
     const urlParams = new URLSearchParams(query);
     const response = await fetch(`/-/search?${urlParams}`);
     const body = await response.json();

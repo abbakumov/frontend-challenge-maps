@@ -1,0 +1,11 @@
+.filters-container {
+    min-width: 200px;
+}
+
+.filter-label {
+    font-weight: bold;
+}
+
+.filter-content {
+    margin-top: 10px;
+}
