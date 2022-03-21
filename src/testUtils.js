@@ -4,7 +4,15 @@ import { Provider } from 'react-redux';
 
 import { store } from './store';
 
-const TestRootComponent = ({children}) => {
+const TestRootComponent = (props) => {
+    const { children, initialActions } = props;
+
+    if (Array.isArray(initialActions)) {
+        console.log('initialActions: ', initialActions);
+
+        initialActions.forEach(action => (store.dispatch(action)));
+    }
+
     return (
         <React.StrictMode>
             <Provider store={store}>
@@ -14,4 +22,10 @@ const TestRootComponent = ({children}) => {
     );
 };
 
-export const customRender = (ui, options) => render(ui, {wrapper: TestRootComponent, ...options});
+export const customRender = (ui, options) => render(
+    ui,
+    {
+        wrapper: (props) => (<TestRootComponent {...props} {...options} />),
+        ...options
+    }
+);
