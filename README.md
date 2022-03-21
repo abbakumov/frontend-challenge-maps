@@ -1,5 +1,38 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Challenge Comment
+
+### Types
+Sorry, I didn't have enough time to cover all remo with types.
+
+But that is definitely first thing I would do in same real project, using TypeScript of course.
+
+### Styles
+Styles are not good in current implementaion. Add ~20 view components and there will be many class-names conflicts and intersections.
+
+Styled-components or frameworks like TailwindCSS would fix this problem.
+
+It's easy to add Styled-components later without rewriting all project styles.
+
+### Store
+Redux is one of the best store solutions in my opinion, especially if we use REST API.
+
+Unlike styles, changing the data store in the future is not easy, so I added Redux.
+
+### Testing
+Just made a couple of view and store tests.
+
+### Absolyte paths
+Yes, first thing to do.
+
+### Optimizations
+> “The real problem is that programmers have spent far too much time worrying about efficiency in the wrong places and at the wrong times; premature optimization is the root of all evil (or at least most of it) in programming.”
+> Donald Knuth
+
+React components are easy to optimize if component tree and store are made well.
+
+I refactored root component and added Redux store to make optimization easier when we need it.
+
 ## Getting started
 
 Configure environment

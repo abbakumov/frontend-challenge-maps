@@ -8,8 +8,6 @@ const TestRootComponent = (props) => {
     const { children, initialActions } = props;
 
     if (Array.isArray(initialActions)) {
-        console.log('initialActions: ', initialActions);
-
         initialActions.forEach(action => (store.dispatch(action)));
     }
 

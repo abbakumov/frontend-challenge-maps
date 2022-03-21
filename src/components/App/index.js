@@ -14,8 +14,6 @@ function App() {
         // TODO: move this logic out of view component
         // Loading initial set of places data
         dispatch(fetchPlacesData());
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

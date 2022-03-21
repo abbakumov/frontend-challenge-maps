@@ -1,3 +1,11 @@
+/**
+ * Challenge-related comment:
+ *
+ * Remade whole component.
+ * Because it will grow up 10 lines/sec in case we have some business or view logic here.
+ * So I just made it root layout component and moved all other logic to view components and store.
+ */
+
 import React from 'react';
 
 import Filters from '../Filters';

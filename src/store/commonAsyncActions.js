@@ -1,7 +1,6 @@
 import {
     fetchingStartedAction,
     fetchingSucceedAction,
-    // fetchingFailureAction,
 } from '../store/slices/search';
 
 import { 
@@ -16,6 +15,7 @@ export const fetchPlacesData = () => async (dispatch, getState) => {
 
     dispatch(fetchingStartedAction());
 
+    // TODO: move magic values somewhere out of thunk function
     const query = {
         limit: 50,
         location: 'Berlin, Germany',

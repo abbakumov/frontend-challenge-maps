@@ -4,6 +4,7 @@ import { usePlaceData } from '../../store/slices/entities/selectors';
 
 import './PlaceCard.css';
 
+// TODO: React.memo in case of multiple rerenders
 const PlaceCard = ({id}) => {
     const {
         image_url,
